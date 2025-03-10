@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardPayment.API", "CardPaymentAPI\CardPayment.API.csproj", "{C1112D11-B480-4B82-AD5A-449CC828A0C1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B45512A9-DE80-4672-BFC2-A186E0CB945C} = {B45512A9-DE80-4672-BFC2-A186E0CB945C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardPayment.Tests", "CardPaymentAPI.Tests\CardPayment.Tests.csproj", "{A4EA982B-EADE-4149-8337-8CC3CED7BC55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardPayment.Application", "Application\CardPayment.Application.csproj", "{B45512A9-DE80-4672-BFC2-A186E0CB945C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{557F28BA-1712-4E8B-9C12-1D14329A6B3F} = {557F28BA-1712-4E8B-9C12-1D14329A6B3F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardPayment.Domain", "CardPayment.Domain\CardPayment.Domain.csproj", "{557F28BA-1712-4E8B-9C12-1D14329A6B3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardPayment.Infrastructure", "CardPayment.Infrastructure\CardPayment.Infrastructure.csproj", "{3C6AABAD-C92D-4CC4-A8AC-71A9789ED626}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B45512A9-DE80-4672-BFC2-A186E0CB945C} = {B45512A9-DE80-4672-BFC2-A186E0CB945C}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0139A359-DE80-44ED-A66B-0B70E624C6A6}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1112D11-B480-4B82-AD5A-449CC828A0C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1112D11-B480-4B82-AD5A-449CC828A0C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1112D11-B480-4B82-AD5A-449CC828A0C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1112D11-B480-4B82-AD5A-449CC828A0C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4EA982B-EADE-4149-8337-8CC3CED7BC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4EA982B-EADE-4149-8337-8CC3CED7BC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4EA982B-EADE-4149-8337-8CC3CED7BC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4EA982B-EADE-4149-8337-8CC3CED7BC55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B45512A9-DE80-4672-BFC2-A186E0CB945C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B45512A9-DE80-4672-BFC2-A186E0CB945C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B45512A9-DE80-4672-BFC2-A186E0CB945C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B45512A9-DE80-4672-BFC2-A186E0CB945C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{557F28BA-1712-4E8B-9C12-1D14329A6B3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{557F28BA-1712-4E8B-9C12-1D14329A6B3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{557F28BA-1712-4E8B-9C12-1D14329A6B3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{557F28BA-1712-4E8B-9C12-1D14329A6B3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C6AABAD-C92D-4CC4-A8AC-71A9789ED626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C6AABAD-C92D-4CC4-A8AC-71A9789ED626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C6AABAD-C92D-4CC4-A8AC-71A9789ED626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C6AABAD-C92D-4CC4-A8AC-71A9789ED626}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {821A7AB0-F62D-468A-B7EF-E3257D0D1DBF}
+	EndGlobalSection
+EndGlobal
