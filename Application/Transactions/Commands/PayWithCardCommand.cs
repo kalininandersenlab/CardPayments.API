@@ -2,19 +2,23 @@
 using CardPaymentAPI.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace CardPayment.Application.Transactions.Commands;
 
 public class PayWithCardCommand : IRequest<PayWithCardResult>
 {
     public int CardId { get; set; }
+
     public decimal Amount { get; set; }
 }
 
 public class PayWithCardResult
 {
     public bool IsSuccess { get; set; }
+
     public string? ErrorMessage { get; set; }
+
     public decimal Fee { get; set; }
 }
 
@@ -31,7 +35,7 @@ public class PayWithCardHandler : IRequestHandler<PayWithCardCommand, PayWithCar
 
     public async Task<PayWithCardResult> Handle(PayWithCardCommand request, CancellationToken cancellationToken)
     {
-        await using var transaction = await _context.BeginTransactionAsync(cancellationToken);
+        await using var transaction = await _context.BeginTransactionAsync(IsolationLevel.Serializable, cancellationToken);
 
         try
         {

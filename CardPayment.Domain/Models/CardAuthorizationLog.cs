@@ -13,7 +13,9 @@ public class CardAuthorizationLog
     public required Card Card { get; set; }
 
     public bool IsAuthorized { get; set; }
+
     public string? Reason { get; set; }
+
     public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
     public static CardAuthorizationLog CreateCardAuthorizationLog(Card card, bool isAuthorized, string reason)

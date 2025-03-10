@@ -9,6 +9,7 @@ namespace CardPayment.Application.Users.Commands;
 public class RegisterCommand : IRequest<AuthResult>
 {
     public string Username { get; set; }
+
     public string Password { get; set; }
 
     public RegisterCommand(string username, string password)

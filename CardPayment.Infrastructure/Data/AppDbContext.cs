@@ -3,6 +3,7 @@ using CardPayment.Domain.Models;
 using CardPaymentAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Data;
 
 namespace CardPayment.Infrastructure.Data;
 
@@ -11,9 +12,13 @@ public class AppDbContext : DbContext, IAppDbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<Card> Cards { get; set; }
+
     public DbSet<Transaction> Transactions { get; set; }
+
     public DbSet<TransactionFee> TransactionFees { get; set; }
+
     public DbSet<CardAuthorizationLog> CardAuthorizationLogs { get; set; }
+
     public DbSet<User> Users { get; set; }
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -21,9 +26,9 @@ public class AppDbContext : DbContext, IAppDbContext
         return await base.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
+    public async Task<IDbContextTransaction> BeginTransactionAsync(IsolationLevel level, CancellationToken cancellationToken = default)
     {
-        return await Database.BeginTransactionAsync(cancellationToken);
+        return await Database.BeginTransactionAsync(level, cancellationToken);
     }
 
     public async Task CommitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default)

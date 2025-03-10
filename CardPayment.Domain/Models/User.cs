@@ -15,6 +15,7 @@ public class User
     public string PasswordHash { get; set; }
 
     public string RefreshToken { get; set; }
+
     public DateTime? RefreshTokenExpiration { get; set; }
 
     public List<Card> Cards { get; set; } = new List<Card>();

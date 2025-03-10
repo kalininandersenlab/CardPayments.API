@@ -28,6 +28,7 @@ public class Card
     public User User { get; set; }
 
     public List<Transaction> Transactions { get; set; } = new();
+
     public List<CardAuthorizationLog> CardAuthorizationLogs { get; set; } = new();
 
     public async Task<bool> IsCardAuthorized(decimal amount, DateTime dateTime)

@@ -20,39 +20,52 @@ namespace CardPayment.Tests.DomainTests
         [Fact]
         public async Task Should_Not_Authorize_When_Card_Is_Inactive()
         {
+            // Arrange
             var card = new Card { CardNumber = "1111222233334444", Id = 1, Balance = 500, IsActive = false };
             _context.Cards.Add(card);
             await _context.SaveChangesAsync();
 
-            bool result = await card.IsCardAuthorized(100, DateTime.UtcNow);
+            // Act
+            var result = await card.IsCardAuthorized(100, DateTime.UtcNow);
+
+            // Assert
             Assert.False(result);
         }
 
         [Fact]
         public async Task Should_Not_Authorize_When_Balance_Is_Low()
         {
+            // Arrange
             var card = new Card { CardNumber = "1111222233334444", Id = 2, Balance = 50, CreditLimit = 0, IsActive = true };
             _context.Cards.Add(card);
             await _context.SaveChangesAsync();
 
-            bool result = await card.IsCardAuthorized(100, DateTime.UtcNow);
+            // Act
+            var result = await card.IsCardAuthorized(100, DateTime.UtcNow);
+
+            // Assert
             Assert.False(result);
         }
 
         [Fact]
         public async Task Should_Authorize_When_Balance_Is_Sufficient()
         {
+            // Arrange
             var card = new Card { CardNumber = "1111222233334444", Id = 3, Balance = 200, CreditLimit = 100, IsActive = true };
             _context.Cards.Add(card);
             await _context.SaveChangesAsync();
 
-            bool result = await card.IsCardAuthorized(100, DateTime.UtcNow);
+            // Act
+            var result = await card.IsCardAuthorized(100, DateTime.UtcNow);
+
+            // Assert
             Assert.True(result);
         }
 
         [Fact]
         public async Task Should_Not_Authorize_Fraudulent_Transaction()
         {
+            // Arrange
             var card = new Card { CardNumber = "1111222233334444", Id = 4, Balance = 500, IsActive = true };
             _context.Cards.Add(card);
             await _context.SaveChangesAsync();
@@ -60,7 +73,10 @@ namespace CardPayment.Tests.DomainTests
             _context.Transactions.Add(new Transaction { Card = card, Amount = 100, Timestamp = DateTime.UtcNow });
             await _context.SaveChangesAsync();
 
-            bool result = await card.IsCardAuthorized(100, DateTime.UtcNow);
+            // Act
+            var result = await card.IsCardAuthorized(100, DateTime.UtcNow);
+
+            // Assert
             Assert.False(result);
         }
     }

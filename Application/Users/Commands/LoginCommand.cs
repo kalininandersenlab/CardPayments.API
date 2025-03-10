@@ -8,6 +8,7 @@ namespace CardPayment.Application.Users.Commands;
 public class LoginCommand : IRequest<AuthResult>
 {
     public string Username { get; set; }
+
     public string Password { get; set; }
 
     public LoginCommand(string username, string password)
